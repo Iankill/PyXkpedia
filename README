@@ -1,0 +1,1 @@
+This script crawls through wikipedia to verify that everytime you click on the first page of an article (not in italic nor in parentheses), you'll end up on the Philosophy page.
