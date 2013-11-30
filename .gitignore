@@ -1,0 +1,5 @@
+# Ignore virtualenv folders #
+#############################
+Include
+Lib
+Scripts
