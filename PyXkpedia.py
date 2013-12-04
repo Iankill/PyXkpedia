@@ -29,8 +29,7 @@ def search(parsed):
 		if element_p_pos > 3:
 			raise BadArticleError
 		element_p_pos += 1
-		if element_p_pos > 1:
-			print("LOOPING")
+		
 
 		if len(parsed.xpath("//*[@id=\"disambigbox\"]")) > 0: #Disambiguation article
 			p = parsed.xpath("//*[@id=\"mw-content-text\"]/ul/li["+str(element_p_pos)+"]/node()")
@@ -84,7 +83,6 @@ def search(parsed):
 
 for i in range(10):
 	link = "Special:Random"
-	#link = "Nurettin_Kayao%C4%9Flu"
 	processed = []
 	print("New Test\n")
 	while link != "Philosophy":
