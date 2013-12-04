@@ -11,7 +11,7 @@ class NoArticleError(Exception): pass
 
 
 
-class Pyxkpedia():
+class Pediapy():
 
 	def __init__(self):
 		self.processed = []
@@ -119,7 +119,7 @@ class Pyxkpedia():
 
 
 if __name__ == "__main__":
-	wiki = Pyxkpedia()
+	wiki = Pediapy()
 	wikiGenerator = wiki.new_search("France")
 	for article in wikiGenerator:
 		print article
