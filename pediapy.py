@@ -92,13 +92,13 @@ class Pediapy():
 				self.article = self.search(self.get_parsed_link(self.get_link(self.article)))	
 				yield self.article
 			except BadArticleError:
-				print u"Bad Article Error"
+				yield "Bad Article Error"
 				break
 			except LoopingError:
-				print u"Detected a Loop"
+				yield "Detected a Loop"
 				break
 			except NoArticleError:
-				print u"No article Error"
+				yield "No article Error"
 				break
 
 
