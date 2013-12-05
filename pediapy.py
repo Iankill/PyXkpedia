@@ -26,7 +26,6 @@ class Pediapy():
 		return html.parse(fh)
 	
 	def search(self,parsed):
-		
 		element_p_pos = 0
 		pos = None
 	
@@ -120,6 +119,6 @@ class Pediapy():
 
 if __name__ == "__main__":
 	wiki = Pediapy()
-	wikiGenerator = wiki.new_search("France")
+	wikiGenerator = wiki.new_search()
 	for article in wikiGenerator:
 		print article
