@@ -8,6 +8,7 @@ from lxml import html
 class BadArticleError(Exception): pass
 class LoopingError(Exception): pass
 class NoArticleError(Exception): pass
+class NotValidArticle(Exception): pass
 
 
 
@@ -18,7 +19,11 @@ class Pediapy():
 		self.article = None
 
 	def get_link(self,link):
-		link = "http://en.wikipedia.org/wiki/" + link 
+		try:
+			link = "http://en.wikipedia.org/wiki/" + link 
+		except TypeError:
+			print "TypeError"
+
 		fh = urllib2.urlopen(link)
 		return fh
 	
@@ -85,6 +90,11 @@ class Pediapy():
 		return next_link	
 
 	def new_search(self, article="Special:Random"):
+		if not self.is_valid_article(article):
+			raise NotValidArticle
+		else:
+			article_name = self.get_article_name(article)
+			yield article_name
 		self.processed = []
 		self.article = article
 		while self.article != u"Philosophy":
@@ -101,12 +111,12 @@ class Pediapy():
 				yield "No article Error"
 				break
 
-
-	def get_random_article_name(self):
-		fh = self.get_link("Special:Random")
+	def get_article_name(self, article):
+		fh = self.get_link(article)
 		url = fh.geturl()
 		article_name = re.sub(ur'.*/wiki/',r'',url)
 		return str(article_name)
+
 
 	def is_valid_article(self, article):
 		valid = True
