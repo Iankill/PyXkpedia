@@ -95,8 +95,10 @@ class Pediapy():
 		else:
 			article_name = self.get_article_name(article)
 			yield article_name
+
 		self.processed = []
 		self.article = article
+		
 		while self.article != u"Philosophy":
 			try:
 				self.article = self.search(self.get_parsed_link(self.get_link(self.article)))	

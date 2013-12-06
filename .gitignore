@@ -7,3 +7,5 @@ Scripts
 __init__.py
 
 __init__.pyc
+
+*.pyc
