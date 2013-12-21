@@ -97,11 +97,11 @@ class Pediapy():
 			yield article_name
 
 		self.processed = []
-		self.article = article
+		self.article = article_name
 		
 		while self.article != u"Philosophy":
 			try:
-				self.article = self.search(self.get_parsed_link(self.get_link(self.article)))	
+				self.article = self.search(self.get_parsed_link(self.get_link(self.article)))
 				yield self.article
 			except BadArticleError:
 				yield "Bad Article Error"
